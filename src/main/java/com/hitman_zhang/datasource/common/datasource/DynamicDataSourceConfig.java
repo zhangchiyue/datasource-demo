@@ -37,7 +37,7 @@ public class DynamicDataSourceConfig {
     @Primary
     public DynamicDataSource dataSource(@Qualifier(DataSourceNames.FIRST) DataSource dataSource1,
                                         @Qualifier(DataSourceNames.SECOND) DataSource dataSource2,
-                                        @Qualifier(DataSourceNames.SECOND) DataSource dataSource3){
+                                        @Qualifier(DataSourceNames.THREE) DataSource dataSource3){
         Map<String ,DataSource> targetDataSources = new HashMap<>();
         targetDataSources.put(DataSourceNames.FIRST, dataSource1);
         targetDataSources.put(DataSourceNames.SECOND, dataSource2);

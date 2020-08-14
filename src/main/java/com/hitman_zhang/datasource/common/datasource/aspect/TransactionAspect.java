@@ -25,11 +25,12 @@ import java.util.Stack;
 public class TransactionAspect {
 
 
-    @Pointcut("@annotation(com.hitman_zhang.datasource.common.datasource.annotation.TransactionSource)")
+    @Pointcut(value = "@annotation(com.hitman_zhang.datasource.common.datasource.annotation.TransactionSource)")
     public void transactionPointCut(){}
 
-    @Around("transactionPointCut()")
+    @Around(value = "transactionPointCut()")
     public Object around(ProceedingJoinPoint pjp) throws Throwable{
+        System.out.println(pjp.getSignature().getName());
         TransactionHolder.setTransactionManager(new Stack<DataSourceTransactionManager>());
         TransactionHolder.setTransactionStatus(new Stack<TransactionStatus>());
         try {
